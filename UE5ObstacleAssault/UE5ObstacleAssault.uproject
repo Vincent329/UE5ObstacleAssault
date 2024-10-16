@@ -25,7 +25,7 @@
 		},
 		{
 			"Name": "GitCentral",
-			"Enabled": true,
+			"Enabled": false,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/0a04519938924b11b2423584c1a02d51"
 		}
 	]
