@@ -15,6 +15,9 @@ public:
 	// Sets default values for this actor's properties
 	AMovingPlatform();
 
+	UPROPERTY(EditAnywhere, Category = "")
+	UStaticMeshComponent* PlatformMesh;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
