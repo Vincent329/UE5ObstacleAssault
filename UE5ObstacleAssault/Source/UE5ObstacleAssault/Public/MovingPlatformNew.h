@@ -24,7 +24,7 @@ public:
 	UPROPERTY(VisibleDefaultsOnly, Category = "Mesh", meta = (DisplayName = "End Position", ToolTip = "The Mesh representing the distance"))
 	UStaticMeshComponent* EndPositionPoint;
 
-	UPROPERTY(EditAnywhere, meta = (Tooltip = "how fast this will go"))
+	UPROPERTY(EditAnywhere, meta = (Tooltip = "how fast this will go")) // hi
 	float f_Speed = 10.0f;
 
 protected:
