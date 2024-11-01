@@ -32,7 +32,7 @@ void AMovingPlatformNew::BeginPlay()
 
 	if (b_StartAtEnd == true)
 	{
-		float t = 1.0f;
+		float t = 0.95f;
 		FVector EndPoint = StartPosition + (EndPosition - StartPosition) * t;
 		SetActorLocation(EndPoint);
 	}
