@@ -29,6 +29,13 @@ void AMovingPlatformNew::BeginPlay()
 
 	f_Magnitude = FVector::Dist(StartPosition, EndPosition);
 	v_Velocity = (EndPosition - StartPosition).GetSafeNormal();
+
+	if (b_StartAtEnd == true)
+	{
+		float t = 1.0f;
+		FVector EndPoint = StartPosition + (EndPosition - StartPosition) * t;
+		SetActorLocation(EndPoint);
+	}
 }
 
 void AMovingPlatformNew::MovePlatform(float DeltaTime)
