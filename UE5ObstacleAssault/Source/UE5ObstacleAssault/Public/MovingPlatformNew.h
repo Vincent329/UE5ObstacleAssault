@@ -36,13 +36,20 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+private:
+
 	UFUNCTION()
-	void MovePlatform(float DeltaTime);
+	void MovePlatform(float DeltaTime); // already moved tick logic in this
+
+	UFUNCTION()
+	void RotatePlatform(float DeltaTime);
 
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+
+// VARIABLES
 private:
 
 	UPROPERTY(VisibleAnywhere)

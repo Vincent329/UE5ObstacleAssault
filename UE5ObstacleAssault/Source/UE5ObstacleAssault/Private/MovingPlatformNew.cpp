@@ -30,6 +30,9 @@ void AMovingPlatformNew::BeginPlay()
 	f_Magnitude = FVector::Dist(StartPosition, EndPosition);
 	v_Velocity = (EndPosition - StartPosition).GetSafeNormal();
 
+	FString MyString = "MyString Value";
+	FString DynamicValue = GetName();
+
 	if (b_StartAtEnd == true)
 	{
 		float t = 0.95f;
@@ -43,16 +46,24 @@ void AMovingPlatformNew::MovePlatform(float DeltaTime)
 	FVector CurrentPosition = GetActorLocation();
 	CurrentPosition = CurrentPosition + (v_Velocity * f_Speed * DeltaTime);
 	SetActorLocation(CurrentPosition);
-
+	
 	float f_distance = FVector::Dist(StartPosition, CurrentPosition);
-
+	FString Name = GetName();
 	if (f_distance > f_Magnitude)
 	{
+		float f_Overshoot = f_distance - f_Magnitude;
+		
+		UE_LOG(LogTemp, Display, TEXT("Name of Object: %s, Overshoot: %f"), *Name, f_Overshoot);
 		FVector MoveDirection = v_Velocity.GetSafeNormal();
 		StartPosition = StartPosition + MoveDirection * f_distance;
 		SetActorLocation(StartPosition);
 		v_Velocity = -v_Velocity;
 	}
+}
+
+void AMovingPlatformNew::RotatePlatform(float DeltaTime)
+{
+	FRotator rotationAxis = FRotator::ZeroRotator;
 }
 
 // Called every frame
