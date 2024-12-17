@@ -45,9 +45,11 @@ void AMovingPlatformNew::MovePlatform(float DeltaTime)
 	SetActorLocation(CurrentPosition);
 
 	float f_distance = FVector::Dist(StartPosition, CurrentPosition);
-
+	FString Name = GetName();
 	if (f_distance > f_Magnitude)
 	{
+		float f_Overshoot = f_distance - f_Magnitude;
+		UE_LOG(LogTemp, Display, TEXT("Name of Object: %s, Overshoot: %f"), *Name, f_Overshoot);
 		FVector MoveDirection = v_Velocity.GetSafeNormal();
 		StartPosition = StartPosition + MoveDirection * f_distance;
 		SetActorLocation(StartPosition);
@@ -55,10 +57,20 @@ void AMovingPlatformNew::MovePlatform(float DeltaTime)
 	}
 }
 
+void AMovingPlatformNew::RotatePlatform(float DeltaTime)
+{
+	FRotator rotationAxis = FRotator::ZeroRotator;
+	UE_LOG(LogTemp, Display, TEXT("Rotating %s"), *GetName());
+	PlatformMesh->AddLocalRotation(FRotator(0.0f, DeltaTime * f_RotationSpeed, 0.0f));
+
+}
+
 // Called every frame
 void AMovingPlatformNew::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	MovePlatform(DeltaTime);
+	if (b_ShouldRotate)
+		RotatePlatform(DeltaTime);
 }
 

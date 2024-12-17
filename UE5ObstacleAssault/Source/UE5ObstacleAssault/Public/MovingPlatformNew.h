@@ -30,14 +30,17 @@ public:
 	UPROPERTY(EditAnywhere, Category =  "Custom Parameter", meta = (DisplayName = "Start At End", Tooltip = "Have the block start at the end position?")) // hi
 	bool b_StartAtEnd;
 
+	UPROPERTY(EditAnywhere, Category =  "Custom Parameter", meta = (DisplayName = "Rotational Speed Value", Tooltip = "how fast this will go")) // hi
+	float f_RotationSpeed = 10.0f;
+
+	UPROPERTY(EditAnywhere, Category =  "Custom Parameter", meta = (DisplayName = "Should Rotate", Tooltip = "Have the block start at the end position?")) // hi
+	bool b_ShouldRotate;
+
 
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
-	UFUNCTION()
-	void MovePlatform(float DeltaTime);
 
 public:	
 	// Called every frame
@@ -56,5 +59,11 @@ private:
 
 	UPROPERTY(VisibleAnywhere)
 	float f_Magnitude;
-	 
+
+	UFUNCTION()
+	void MovePlatform(float DeltaTime);
+
+	UFUNCTION()
+	void RotatePlatform(float DeltaTime);
+
 };
