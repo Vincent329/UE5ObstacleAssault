@@ -24,6 +24,8 @@ public:
 	UPROPERTY(VisibleDefaultsOnly, Category = "Mesh", meta = (DisplayName = "End Position", ToolTip = "The Mesh representing the distance"))
 	UStaticMeshComponent* EndPositionPoint;
 
+	UFUNCTION(BlueprintCallable)
+	void SetShouldRotate(bool shouldRotate);
 
 
 

@@ -20,6 +20,11 @@ AMovingPlatformNew::AMovingPlatformNew()
 	EndPositionPoint->bHiddenInGame = true;
 }
 
+void AMovingPlatformNew::SetShouldRotate(bool shouldRotate)
+{
+	b_ShouldRotate = shouldRotate;
+}
+
 // Called when the game starts or when spawned
 void AMovingPlatformNew::BeginPlay()
 {
